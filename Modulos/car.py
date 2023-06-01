@@ -1,10 +1,10 @@
 class Car:
     #atributos públicos
-    color=""
-    modelo=""
-    marca=""
     encendido=False
     velocidad=0
+    _altura=1.5
+    _ancho=2.5
+    _velocidadMaxima=100
      #atributos privados
     __llave="123456"
     def __init__(self,llave,color,modelo,marca):
@@ -33,6 +33,21 @@ class Car:
         if self.encendido==True:
             self.encendido=False
             self.velocidad=0
+            self.bocina(True)
+    
+    @property
+    def matricula(self):
+        return self.__matricula
+    @matricula.setter
+    def matricula(self,valor):
+        self.__matricula=valor
+
+    @staticmethod
+    def bocina(sonido=True):
+        if sonido==True:
+            print("Se escuchó la bocina")
+        else:
+            print("No se escuchó la bocina")    
 
     #métodos privados (sexo)
     def __enciendeLuzFreno(self):
